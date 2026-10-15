@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b20">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>My Flight Mission ✈️</title>
+<style>
+:root{color-scheme:dark;--bg:#080b20;--panel:rgba(20,25,55,.72);--line:rgba(154,165,255,.18);--cyan:#70f5ff;--purple:#b58aff;--muted:#aeb8d9;--white:#f5f7ff}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse at 15% 0%,#252052 0,transparent 42%),radial-gradient(ellipse at 90% 30%,#112b50 0,transparent 38%),linear-gradient(155deg,#080b20,#11112c 60%,#080b20);padding:env(safe-area-inset-top) 14px calc(24px + env(safe-area-inset-bottom));overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}.wrap{width:min(100%,760px);margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 2px 18px;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em;font-size:13px}.brandmark{width:38px;height:38px;border:1px solid #5cefff70;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#72f4ff20,#b58aff30);box-shadow:0 0 22px #69dfff1a;font-size:21px}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:800}.top-actions{display:flex;gap:8px}.btn{border:1px solid var(--line);border-radius:14px;padding:11px 14px;color:var(--white);background:#ffffff09;font-weight:750;font-size:12px;min-height:42px}.btn:active{transform:scale(.98)}.btn.primary{background:linear-gradient(105deg,#5cecf5,#9a7aff);border:0;color:#090d24;box-shadow:0 6px 22px #756cff30}.btn.small{padding:9px 11px;min-height:38px}.hero{padding:10px 2px 20px}.hero h1{font-size:clamp(29px,7vw,45px);line-height:1.04;letter-spacing:-.045em;margin:8px 0 9px}.hero h1 span{background:linear-gradient(100deg,var(--cyan),#c3a3ff);color:transparent;background-clip:text}.sub{color:var(--muted);font-size:13px;line-height:1.55;margin:0}.panel{background:linear-gradient(145deg,rgba(25,31,67,.84),rgba(13,17,41,.72));border:1px solid var(--line);border-radius:23px;padding:17px;margin-bottom:14px;box-shadow:0 14px 36px #00000019,inset 0 1px #ffffff08;backdrop-filter:blur(18px)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.panel-title{font-size:12px;letter-spacing:.13em;font-weight:850}.pill{border:1px solid #70f5ff45;color:var(--cyan);border-radius:100px;padding:6px 9px;font-size:9px;letter-spacing:.1em;font-weight:850;white-space:nowrap}.mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:5px;background:#070a1c88;border-radius:15px;margin-bottom:12px}.mode{border:0;background:transparent;color:var(--muted);border-radius:11px;padding:12px 6px;font-size:11px;font-weight:850;letter-spacing:.06em}.mode.active{background:linear-gradient(110deg,#6ceef7,#b39aff);color:#080b20;box-shadow:0 5px 18px #6eafff24}.flight-area{position:relative;height:245px;border-radius:17px;overflow:hidden;border:1px solid #a4b7ff1b;background:radial-gradient(ellipse at 50% 45%,#28356c50,transparent 65%),linear-gradient(145deg,#10152f,#0a1026 65%,#171333);touch-action:pan-y;isolation:isolate}.flight-area:before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,#fff 80%,transparent),radial-gradient(1px 1px at 30% 75%,#8feaff 80%,transparent),radial-gradient(1.5px 1.5px at 72% 18%,#fff 80%,transparent),radial-gradient(1px 1px at 88% 62%,#b8a4ff 80%,transparent),radial-gradient(1px 1px at 56% 86%,#fff 80%,transparent),radial-gradient(1px 1px at 45% 14%,#b8eaff 80%,transparent);opacity:.7;z-index:-1}.flight-area.dragging{touch-action:none;cursor:grabbing}.flight-area svg.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.route-base{fill:none;stroke:#6d7fff30;stroke-width:1.3;stroke-dasharray:4 7}.route-glow{fill:none;stroke:#67f4ff25;stroke-width:8;filter:blur(5px)}.route-line{fill:none;stroke:url(#routeGrad);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:5 6}.airport{position:absolute;font-size:9px;letter-spacing:.1em;color:#c6d1f7;font-weight:800}.airport:before{content:"";display:inline-block;width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 10px var(--cyan);margin-right:5px}.airport.a{left:8%;bottom:14%}.airport.b{right:7%;top:14%}.plane{position:absolute;width:56px;height:56px;display:grid;place-items:center;transform:translate(-50%,-50%);z-index:3;filter:drop-shadow(0 0 8px #71f5ffb0);touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}.plane svg{width:100%;height:100%;overflow:visible}.plane.dragging{cursor:grabbing;filter:drop-shadow(0 0 13px #b28aff)}.flight-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:9px;color:#aeb9dfb8;white-space:nowrap;letter-spacing:.04em;pointer-events:none}.flight-controls{display:flex;gap:8px;margin-top:12px}.flight-controls .btn{flex:1}.speed-row{display:flex;align-items:center;gap:12px;margin-top:13px;color:var(--muted);font-size:11px}.speed-row input{width:100%;accent-color:var(--cyan)}.readouts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:13px}.readout{padding:11px 8px;border-radius:14px;background:#060a1a75;border:1px solid #a9b6ff12;min-width:0}.readout .label{font-size:8px;color:var(--muted);letter-spacing:.12em;font-weight:800}.readout .value{font-size:17px;font-weight:850;margin-top:6px;white-space:nowrap}.readout .unit{font-size:9px;color:var(--muted);font-weight:600}.mission-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.mission-top h2{font-size:22px;margin:6px 0 5px;letter-spacing:-.03em}.status{color:var(--cyan);font-size:10px;font-weight:850;letter-spacing:.09em}.clock-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:17px}.clock-card{background:#080c20a8;border:1px solid #aab8ff16;border-radius:17px;padding:14px 12px;min-width:0}.clock-title{font-size:10px;letter-spacing:.12em;font-weight:850;color:var(--muted)}.clock-main{font-size:clamp(22px,6vw,32px);font-weight:900;letter-spacing:-.05em;margin:9px 0 3px;font-variant-numeric:tabular-nums;white-space:nowrap}.clock-caption{font-size:9px;color:var(--muted)}.mini-time{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:12px}.mini-time div{background:#ffffff07;border-radius:9px;padding:7px 4px;text-align:center}.mini-time b{display:block;font-size:13px;font-variant-numeric:tabular-nums}.mini-time span{font-size:8px;color:var(--muted)}.progress-meta{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--muted);margin:16px 0 8px}.progress-meta strong{color:var(--cyan);font-size:12px}.progress-track{height:9px;background:#06091a;border:1px solid #ffffff12;border-radius:99px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:99px;box-shadow:0 0 14px #7eeeff55;transition:width .4s}.dates{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.datebox{padding:11px;border-radius:13px;background:#ffffff05;border:1px solid #ffffff0b;min-width:0}.datebox span{display:block;color:var(--muted);font-size:9px;letter-spacing:.1em;margin-bottom:6px}.datebox strong{font-size:11px;line-height:1.5;overflow-wrap:anywhere}.support{font-size:12px;color:#d5d8f2;line-height:1.5;margin:13px 0 0}.settings-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.setup{max-width:560px;margin:5vh auto 20px}.setup h1{font-size:35px;letter-spacing:-.04em;margin:8px 0}.field{margin:17px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:6px}.field input{width:100%;min-height:48px;background:#080c20;border:1px solid #aab8ff35;border-radius:13px;color:var(--white);padding:12px;font-size:15px;outline:none}.field input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #70f5ff17}.form-error{color:#ffb8d0;font-size:12px;line-height:1.4;margin:10px 0}.full{width:100%;min-height:50px;font-size:13px}.hidden{display:none!important}.foot{color:#858fb7;font-size:10px;text-align:center;padding:5px 12px 15px;line-height:1.6}.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#20284b;border:1px solid #8da8ff55;padding:12px 16px;border-radius:13px;font-size:12px;z-index:20;transition:.25s;max-width:90vw;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.section-gap{margin-top:4px}
+@media(min-width:600px){body{padding-left:22px;padding-right:22px}.flight-area{height:300px}.panel{padding:20px}.readouts{gap:10px}.readout{padding:14px}.clock-card{padding:17px}.hero{padding-top:18px}}
+@media(max-width:370px){body{padding-left:10px;padding-right:10px}.panel{padding:13px;border-radius:19px}.flight-area{height:215px}.readout .value{font-size:14px}.readout{padding:9px 5px}.btn{padding:10px 9px}.clock-card{padding:11px 9px}.clock-main{font-size:21px}.brand{font-size:11px}}
+@media(orientation:landscape) and (max-height:500px){.flight-area{height:190px}.hero{padding-bottom:10px}.topbar{padding-bottom:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+ <div class="brand"><div class="brandmark">✈</div><div>SKYBOUND <span style="color:var(--purple)">/ PERSONAL FLIGHT</span></div></div>
+ <div class="top-actions"><button class="btn small" id="settingsTop" type="button">⚙ Settings</button></div>
+</header>
+
+<section id="setupScreen" class="setup panel hidden">
+ <div class="eyebrow">✦ YOUR NEXT CHAPTER STARTS HERE</div>
+ <h1>Set your <span style="color:var(--purple)">mission.</span></h1>
+ <p class="sub">Choose the time your personal goal began and the date you want to reach. This stays on this device—no account needed.</p>
+ <form id="setupForm">
+  <div class="field"><label for="startInput">A. Mission start date &amp; time</label><input id="startInput" type="datetime-local" required><small>When did you begin your personal goal? A date in the past is okay.</small></div>
+  <div class="field"><label for="targetInput">B. Destination date &amp; time</label><input id="targetInput" type="datetime-local" required><small>When do you want to reach this milestone? Choose a time after your start.</small></div>
+  <p id="setupError" class="form-error" role="alert"></p>
+  <button class="btn primary full" type="submit">START MY MISSION ✦</button>
+ </form>
+ <p class="support">Your goal is personal. This dashboard is here to encourage you, not judge you. A setback doesn't erase your progress or your ability to begin again.</p>
+</section>
+
+<main id="dashboard" class="hidden">
+ <section class="hero">
+  <div class="eyebrow">✦ FLIGHT SYSTEMS ONLINE</div>
+  <h1>Your journey.<br><span>Your destination.</span></h1>
+  <p class="sub">A personal flight deck for the goals you're working toward. Keep moving, one moment at a time.</p>
+ </section>
+
+ <section class="panel">
+  <div class="panel-head"><div class="panel-title">FLIGHT SIMULATOR</div><div class="pill" id="flightState">● AUTO PILOT</div></div>
+  <div class="mode-switch" role="group" aria-label="Airplane control mode">
+   <button class="mode active" id="autoMode" type="button" aria-pressed="true">✦ AUTO FLY</button>
+   <button class="mode" id="fingerMode" type="button" aria-pressed="false">☝ FINGER CONTROL</button>
+  </div>
+  <div class="flight-area" id="flightArea" aria-label="Airplane flight control area">
+   <svg class="route" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="routeGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#70f5ff"/><stop offset="1" stop-color="#b58aff"/></linearGradient></defs>
+    <path class="route-glow" d="M45 255 C100 80 185 270 275 150 S440 25 550 55"/>
+    <path class="route-base" d="M45 255 C100 80 185 270 275 150 S440 25 550 55"/>
+    <path class="route-line" d="M45 255 C100 80 185 270 275 150 S440 25 550 55"/>
+   </svg>
+   <div class="airport a">ORIGIN · ALPHA</div><div class="airport b">DESTINATION · NOVA</div>
+   <div class="plane" id="plane" role="img" aria-label="Simulated passenger airplane">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="planeGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".52" stop-color="#8af8ff"/><stop offset="1" stop-color="#b89aff"/></linearGradient></defs><path d="M32 3 C35 3 36 9 37 18 L41 29 L58 38 Q61 40 58 43 L39 38 L38 51 L47 57 L46 60 L32 56 L18 60 L17 57 L26 51 L25 38 L6 43 Q3 40 6 38 L23 29 L27 18 C28 9 29 3 32 3Z" fill="url(#planeGrad)" stroke="#fff" stroke-width="1"/></svg>
+   </div>
+   <div class="flight-hint" id="flightHint">Aircraft following simulated route</div>
+  </div>
+  <div class="flight-controls"><button class="btn" id="playBtn" type="button">▶ Play</button><button class="btn" id="pauseBtn" type="button">Ⅱ Pause</button><button class="btn" id="resumeBtn" type="button">↻ Resume</button></div>
+  <div class="speed-row"><span>SIM SPEED</span><input id="speedSlider" type="range" min="0.4" max="2.5" step="0.1" value="1" aria-label="Simulated airplane speed"><b id="speedLabel" style="color:var(--cyan);min-width:35px">1.0×</b></div>
+  <div class="readouts">
+   <div class="readout"><div class="label">ALTITUDE</div><div class="value" id="altitude">32,000<span class="unit"> ft</span></div></div>
+   <div class="readout"><div class="label">SPEED</div><div class="value" id="airspeed">460<span class="unit"> kt</span></div></div>
+   <div class="readout"><div class="label">HEADING</div><div class="value" id="heading">090<span class="unit">°</span></div></div>
+   <div class="readout"><div class="label">PROGRESS</div><div class="value" id="flightProgress">0<span class="unit">%</span></div></div>
+  </div>
+  <p class="support">Simulation only — these readings are decorative and do not represent a real aircraft or GPS location.</p>
+ </section>
+
+ <section class="panel">
+  <div class="mission-top"><div><div class="eyebrow">MY MISSION</div><h2 id="missionTitle">One moment at a time.</h2><div class="status" id="missionStatus">● MISSION STARTED</div></div><div class="brandmark" style="flex:0 0 42px">✦</div></div>
+  <div class="clock-grid">
+   <div class="clock-card"><div class="clock-title">TIME ELAPSED</div><div class="clock-main" id="elapsedDays">0d 00h</div><div class="clock-caption">Since your chosen start</div><div class="mini-time"><div><b id="elapsedHours">00</b><span>HOURS</span></div><div><b id="elapsedMinutes">00</b><span>MINUTES</span></div><div><b id="elapsedSeconds">00</b><span>SECONDS</span></div></div></div>
+   <div class="clock-card"><div class="clock-title">TIME LEFT</div><div class="clock-main" id="leftDays">0d 00h</div><div class="clock-caption" id="leftCaption">Until your destination</div><div class="mini-time"><div><b id="leftHours">00</b><span>HOURS</span></div><div><b id="leftMinutes">00</b><span>MINUTES</span></div><div><b id="leftSeconds">00</b><span>SECONDS</span></div></div></div>
+  </div>
+  <div class="progress-meta"><span>MISSION PROGRESS</span><strong id="percentLabel">0.0%</strong></div><div class="progress-track" role="progressbar" aria-label="Mission time elapsed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="dates"><div class="datebox"><span>MISSION STARTED</span><strong id="startSummary">—</strong></div><div class="datebox"><span>DESTINATION</span><strong id="targetSummary">—</strong></div></div>
+  <p class="support" id="encouragement">Every second is a chance to keep moving forward.</p>
+  <div class="settings-actions"><button class="btn" id="editBtn" type="button">⚙ Edit dates</button><button class="btn" id="restartStreakBtn" type="button">↻ Restart streak</button><button class="btn" id="resetBtn" type="button">＋ New mission</button></div>
+  <p class="support" id="streakInfo"></p><div class="datebox" style="margin-top:10px"><span>PERSONAL STREAK · SEPARATE TIMER</span><strong id="streakTimer">0 days · 00:00:00</strong></div>
+ </section>
+</main>
+<footer class="foot">PRIVATE BY DESIGN · Your goal dates are saved in this browser on this device. Clearing Safari website data or switching browser/device may remove or not transfer them.<br>Tip: in Safari, tap Share → Add to Home Screen to keep a shortcut on your iPhone.</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<div id="settingsModal" class="hidden" style="position:fixed;inset:0;background:#030516c9;z-index:15;display:none;align-items:center;justify-content:center;padding:16px;overflow:auto">
+ <section class="panel" style="width:min(100%,500px);max-height:90dvh;overflow:auto;margin:auto">
+  <div class="panel-head"><div><div class="eyebrow">FLIGHT DECK SETTINGS</div><div class="panel-title" style="margin-top:7px">MISSION DATES</div></div><button class="btn small" id="closeSettings" type="button">✕ Close</button></div>
+  <form id="settingsForm"><div class="field"><label for="editStart">Mission start date &amp; time</label><input id="editStart" type="datetime-local" required><small>The original start of this chosen goal period.</small></div><div class="field"><label for="editTarget">Destination date &amp; time</label><input id="editTarget" type="datetime-local" required><small>The milestone you are counting toward.</small></div><p id="settingsError" class="form-error" role="alert"></p><button class="btn primary full" type="submit">SAVE MISSION SETTINGS</button></form>
+  <p class="support">Restarting your streak is separate from these dates. It will not change your mission period.</p>
+ </section>
+</div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const STORE='skyboundMission.v1';
+let goal=null, streakStart=null, mode='auto', playing=true, speed=1, raf=0, lastFrame=0, phase=0, x=.23, y=.69, angle=28, dragging=false, pointerId=null, trail=[], lastPoint=null, lastTrailAt=0;
+const now=()=>Date.now();
+const pad=n=>String(n).padStart(2,'0');
+function localInput(ms){const d=new Date(ms);return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`}
+function niceDate(ms){return new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(ms)}
+function save(){try{localStorage.setItem(STORE,JSON.stringify({goal,streakStart}))}catch(e){toast('Could not save locally. Check Safari storage settings.');}}
+function load(){try{const s=JSON.parse(localStorage.getItem(STORE)||'null');if(s&&s.goal&&Number.isFinite(s.goal.start)&&Number.isFinite(s.goal.target)){goal=s.goal;streakStart=Number.isFinite(s.streakStart)?s.streakStart:goal.start}}catch(e){}}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2500)}
+function validate(a,b){if(!Number.isFinite(a)||!Number.isFinite(b))return 'Please enter both dates and times.';if(a>now())return 'Your start date cannot be in the future.';if(b<a)return 'Your destination must be the same time as or later than your start.';return ''}
+function showApp(){ $('setupScreen').classList.add('hidden');$('dashboard').classList.remove('hidden');renderGoal();tick(); }
+function showSetup(){ $('dashboard').classList.add('hidden');$('setupScreen').classList.remove('hidden');$('startInput').value=localInput(goal?.start??now());$('targetInput').value=localInput(goal?.target??now()+30*86400000);$('setupError').textContent=''; }
+function renderGoal(){if(!goal)return;$('startSummary').textContent=niceDate(goal.start);$('targetSummary').textContent=niceDate(goal.target);$('editStart').value=localInput(goal.start);$('editTarget').value=localInput(goal.target);$('streakInfo').textContent=streakStart?`Current streak timer started: ${niceDate(streakStart)}. This is independent of your mission dates.`:''}
+function splitTime(ms){ms=Math.max(0,Math.floor(ms/1000));return {days:Math.floor(ms/86400),hours:Math.floor(ms%86400/3600),minutes:Math.floor(ms%3600/60),seconds:ms%60}}
+function tick(){if(!goal)return;const t=now(),elapsed=Math.max(0,t-goal.start),total=goal.target-goal.start,left=Math.max(0,goal.target-t),e=splitTime(elapsed),l=splitTime(left);const streak=splitTime(Math.max(0,t-(streakStart??goal.start)));$('streakTimer').textContent=`${streak.days} days · ${pad(streak.hours)}:${pad(streak.minutes)}:${pad(streak.seconds)}`;$('elapsedDays').textContent=`${e.days}d ${pad(e.hours)}h`;$('elapsedHours').textContent=pad(e.hours);$('elapsedMinutes').textContent=pad(e.minutes);$('elapsedSeconds').textContent=pad(e.seconds);
+$('leftDays').textContent=`${l.days}d ${pad(l.hours)}h`;$('leftHours').textContent=pad(l.hours);$('leftMinutes').textContent=pad(l.minutes);$('leftSeconds').textContent=pad(l.seconds);
+let pct=total<=0?(t>=goal.target?100:0):Math.max(0,Math.min(100,elapsed/total*100));$('percentLabel').textContent=pct.toFixed(1)+'%';$('progressFill').style.width=pct+'%';$('progressTrack').setAttribute('aria-valuenow',pct.toFixed(1));
+if(t>=goal.target){$('missionTitle').textContent='Destination reached ✦';$('missionStatus').textContent='✓ MILESTONE REACHED';$('leftCaption').textContent='You made it to this milestone';$('encouragement').textContent='You reached the date you set. Celebrate the progress you made, and choose your next step when you’re ready.'}else{$('missionTitle').textContent='One moment at a time.';$('missionStatus').textContent='● MISSION STARTED';$('leftCaption').textContent='Until your destination';$('encouragement').textContent=pct<25?'Every journey begins with one step. Keep going at your own pace.':pct<75?'You’re moving forward. Small, steady steps count.':'Your destination is getting closer. Keep giving yourself credit for the effort.'}
+}
+function setMode(next){mode=next;const finger=mode==='finger';$('autoMode').classList.toggle('active',!finger);$('fingerMode').classList.toggle('active',finger);$('autoMode').setAttribute('aria-pressed',String(!finger));$('fingerMode').setAttribute('aria-pressed',String(finger));$('flightState').textContent=finger?'● MANUAL CONTROL':(playing?'● AUTO PILOT':'Ⅱ PAUSED');$('flightHint').textContent=finger?'Drag the airplane with your finger':'Aircraft following simulated route';$('flightArea').classList.toggle('manual',finger);if(!finger){dragging=false;$('plane').classList.remove('dragging');$('flightArea').classList.remove('dragging');lastPoint=null}drawPlane(); }
+function pathPoint(p){const t=((p%1)+1)%1; // smooth loop through an abstract cubic route
+ const pts=[{x:.09,y:.84},{x:.16,y:.36},{x:.35,y:.75},{x:.52,y:.50},{x:.68,y:.15},{x:.91,y:.19}];
+ const scaled=t*(pts.length-1),i=Math.min(pts.length-2,Math.floor(scaled)),u=scaled-i;
+ const smooth=u*u*(3-2*u);return {x:pts[i].x+(pts[i+1].x-pts[i].x)*smooth,y:pts[i].y+(pts[i+1].y-pts[i].y)*smooth};}
+function drawPlane(){const area=$('flightArea'),plane=$('plane');const w=area.clientWidth,h=area.clientHeight;plane.style.left=(x*w)+'px';plane.style.top=(y*h)+'px';plane.style.transform=`translate(-50%,-50%) rotate(${angle}deg)`;const pts=trail.slice(-24);let trailEl=$('dynamicTrail');if(!trailEl){trailEl=document.createElementNS('http://www.w3.org/2000/svg','svg');trailEl.id='dynamicTrail';trailEl.setAttribute('viewBox','0 0 600 300');trailEl.setAttribute('preserveAspectRatio','none');trailEl.classList.add('route');trailEl.style.zIndex='1';trailEl.innerHTML='<path id="trailPath" fill="none" stroke="#70f5ff" stroke-width="2.8" stroke-linecap="round" opacity=".9" filter="url(#trailGlow)"/><defs><filter id="trailGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';area.insertBefore(trailEl,plane)}
+ const d=pts.map((p,i)=>`${i?'L':'M'} ${p.x*600} ${p.y*300}`).join(' ');$('trailPath').setAttribute('d',d);$('heading').innerHTML=pad(Math.round(((angle+360)%360))).slice(-3)+'<span class="unit">°</span>';const progress=Math.round(((phase%1)+1)%1*100);$('flightProgress').innerHTML=progress+'<span class="unit">%</span>';$('altitude').innerHTML=Math.round(31000+Math.sin(phase*8)*1200).toLocaleString()+'<span class="unit"> ft</span>';$('airspeed').innerHTML=Math.round(440+speed*25)+'<span class="unit"> kt</span>';}
+function frame(ts){if(!lastFrame)lastFrame=ts;const dt=Math.min(60,ts-lastFrame);lastFrame=ts;if(mode==='auto'&&playing&&!dragging){phase=(phase+dt/26000*speed)%1;const p=pathPoint(phase),prev=pathPoint(phase-.002);x=p.x;y=p.y;angle=Math.atan2((p.y-prev.y)*$('flightArea').clientHeight,(p.x-prev.x)*$('flightArea').clientWidth)*180/Math.PI+90;const t=now();if(t-lastTrailAt>40){trail.push({x,y});if(trail.length>36)trail.shift();lastTrailAt=t}drawPlane()}raf=requestAnimationFrame(frame)}
+function coords(ev){const r=$('flightArea').getBoundingClientRect();return {x:Math.max(.045,Math.min(.955,(ev.clientX-r.left)/r.width)),y:Math.max(.08,Math.min(.91,(ev.clientY-r.top)/r.height))}}
+$('autoMode').addEventListener('click',()=>{setMode('auto');playing=true;$('flightState').textContent='● AUTO PILOT'});
+$('fingerMode').addEventListener('click',()=>{setMode('finger');playing=false;$('flightState').textContent='● MANUAL CONTROL'});
+$('playBtn').addEventListener('click',()=>{playing=true;if(mode==='auto')$('flightState').textContent='● AUTO PILOT';toast('Autopilot engaged.')});
+$('pauseBtn').addEventListener('click',()=>{playing=false;$('flightState').textContent=mode==='auto'?'Ⅱ PAUSED':'● MANUAL CONTROL';toast('Flight paused.')});
+$('resumeBtn').addEventListener('click',()=>{playing=true;if(mode==='auto')$('flightState').textContent='● AUTO PILOT';toast('Flight resumed.')});
+$('speedSlider').addEventListener('input',e=>{speed=Number(e.target.value);$('speedLabel').textContent=speed.toFixed(1)+'×'});
+const plane=$('plane'),area=$('flightArea');
+plane.addEventListener('pointerdown',e=>{if(mode!=='finger')return;dragging=true;pointerId=e.pointerId;plane.setPointerCapture?.(pointerId);plane.classList.add('dragging');area.classList.add('dragging');lastPoint={x,y};e.preventDefault()});
+plane.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;e.preventDefault();const p=coords(e);const dx=(p.x-x)*area.clientWidth,dy=(p.y-y)*area.clientHeight;if(Math.hypot(dx,dy)>1)angle=Math.atan2(dy,dx)*180/Math.PI+90;x=p.x;y=p.y;trail.push({x,y});if(trail.length>36)trail.shift();drawPlane()});
+function endDrag(e){if(!dragging)return;dragging=false;pointerId=null;plane.classList.remove('dragging');area.classList.remove('dragging');lastPoint=null}
+plane.addEventListener('pointerup',endDrag);plane.addEventListener('pointercancel',endDrag);plane.addEventListener('lostpointercapture',endDrag);
+area.addEventListener('pointerdown',e=>{if(mode!=='finger'||e.target===plane)return;const p=coords(e);const rect=area.getBoundingClientRect();const px=x*rect.width,py=y*rect.height;if(Math.hypot((e.clientX-rect.left)-px,(e.clientY-rect.top)-py)<45){dragging=true;pointerId=e.pointerId;plane.setPointerCapture?.(pointerId);plane.classList.add('dragging');area.classList.add('dragging');e.preventDefault()}});
+$('speedSlider').addEventListener('change',()=>toast('Simulation speed updated.'));
+function openSettings(){$('settingsModal').classList.remove('hidden');$('settingsModal').style.display='flex';renderGoal()}
+function closeSettings(){$('settingsModal').classList.add('hidden');$('settingsModal').style.display='none'}
+$('settingsTop').addEventListener('click',()=>goal?openSettings():showSetup());$('editBtn').addEventListener('click',openSettings);$('closeSettings').addEventListener('click',closeSettings);$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))closeSettings()});
+$('setupForm').addEventListener('submit',e=>{e.preventDefault();const a=new Date($('startInput').value).getTime(),b=new Date($('targetInput').value).getTime(),err=validate(a,b);if(err){$('setupError').textContent=err;return}goal={start:a,target:b};streakStart=a;save();showApp();toast('Mission started. You’ve got this.')});
+$('settingsForm').addEventListener('submit',e=>{e.preventDefault();const a=new Date($('editStart').value).getTime(),b=new Date($('editTarget').value).getTime(),err=validate(a,b);if(err){$('settingsError').textContent=err;return}goal={start:a,target:b};save();renderGoal();tick();closeSettings();toast('Mission settings saved.')});
+$('restartStreakBtn').addEventListener('click',()=>{if(confirm('Restart your personal streak from right now? Your mission start and destination dates will stay exactly the same.')){streakStart=now();save();renderGoal();toast('Fresh start recorded. Keep moving forward.')}});
+$('resetBtn').addEventListener('click',()=>{if(confirm('Start a new mission? Your current mission dates will be replaced after you set new ones.')){goal=null;streakStart=null;try{localStorage.removeItem(STORE)}catch(e){}closeSettings();showSetup()}});
+window.addEventListener('resize',drawPlane);document.addEventListener('visibilitychange',()=>{lastFrame=0});
+load();if(goal)showApp();else showSetup();setMode('auto');raf=requestAnimationFrame(frame);setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
